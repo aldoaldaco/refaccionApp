@@ -1,0 +1,8 @@
+bower_components/
+build/
+node_modules/
+package-lock.json
+gulpfile.js
+tasks/
+.idea/
+.DS_Store

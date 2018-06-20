@@ -1,0 +1,47 @@
+{
+  "name": "refaccion-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "bower": "^1.8.2",
+    "cells-cli": "^1.4.5",
+    "del": "^2.2.2",
+    "excel-as-json": "^2.0.1",
+    "fs-extra": "^4.0.2",
+    "gulp": "^3.9.1",
+    "gulp-run": "^1.7.1",
+    "gulp-util": "^3.0.8",
+    "lodash": "^4.17.4",
+    "polymer-analyzer": "^2.5.0",
+    "polymer-cli": "^1.6.0",
+    "run-sequence": "^1.2.2",
+    "targz": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.7.0",
+    "eslint-plugin-html": "^2.0.0",
+    "lint": "eslint gulpfile.js tasks/*.js --fix",
+    "browser-sync": "^2.18.13"
+  },
+  "scripts": {
+    "clean": "rm -rf bower_components && bower cache clean && bower install",
+    "serve:dev": "npm run clean && gulp serve:dev",
+    "serve:env": "gulp serve:env",
+    "deploy": "serve:env && polymer serve build/es5-bundled",
+    "lint": "eslint gulpfile.js tasks/*.js --fix"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "eslintConfig": {
+    "extends": "xo-space",
+    "rules": {
+      "capitalized-comments": 0,
+      "no-warning-comments": 0,
+      "radix": 0,
+      "no-useless-escape": 0
+    },
+    "env": {
+      "node": true
+    }
+  }
+}

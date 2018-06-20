@@ -1,0 +1,157 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/l2t-paper-slider/l2t-paper-slider.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="refaccion-inicio">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: var(--app-primer-color);
+        padding-top: 100px;
+      }
+      .header-page {
+        width: 100%;
+        height: 50px;
+        text-align: center;
+      }
+      .title {
+        margin: 16px 0;
+        color: var(--app-cuarto-color);
+        font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+      .line-title {
+        width: 50px;
+        margin: 10px auto;
+        border-bottom: 2px solid var(--app-tercer-color);
+      }
+      l2t-paper-slider {
+        --paper-slide-dot: var(--app-quinto-color);
+        --paper-slide-dot-selected: var(--app-tercer-color);
+
+      }
+      .text {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+      }
+      .content {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        white-space: nowrap;
+      }
+      iron-image {
+        width: 50%;
+      }
+      .content h1 {
+        max-width: 90%;
+        font-size: 55px;
+      }
+      .content div {
+        max-width: 90%;
+        height: 100%;
+        font-size: 2rem;
+        overflow-wrap: break-word;
+      }
+
+      @media only screen and (max-width: 1200px){
+        :host {
+          padding-top: 50px;
+        }
+        .text {
+          flex-direction: column;
+        }
+        .content {
+          width: 90%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+          text-align: center;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          white-space: nowrap;
+        }
+        iron-image {
+          width: 90%;
+          height: 100%;
+          margin-bottom: 100px;
+        }
+        .content h1 {
+          font-size: 45px;
+        }
+        .content div {
+          font-size: 35px;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          white-space: nowrap;
+        }
+      }
+
+    </style>
+    <div class="header-page">
+      <h1 class="title">INICIO</h1>
+      <div class="line-title"></div>
+    </div>
+    <div class="body">
+      <l2t-paper-slider auto-progress slide-duration="3">
+        <paper-slide>
+          <div class="text">
+            <div class="content">
+              <h1>BATERÍAS</h1>
+              <div>Las mejores baterias para tu auto</div>
+            </div>
+            <iron-image src="../images/products/1.png" style="width:80%; height: 80%;" preload fade sizing="contain"></iron-image>
+          </div>
+        </paper-slide>
+        <paper-slide>
+          <div class="text">
+            <div class="content">
+              <h1>BUJÍAS</h1>
+              <div>Las mejores baterias para tu auto</div>
+            </div>
+            <iron-image src="../images/products/2.png" style="width:80%; height: 80%;" preload fade sizing="contain"></iron-image>
+          </div>
+        </paper-slide>
+        <paper-slide>
+          <div class="text">
+            <div class="content">
+              <h1>DISCOS DE FRENO</h1>
+              <div>Las mejores baterias para tu auto</div>
+            </div>
+            <iron-image src="../images/products/3.png" style="width:80%; height: 80%;" preload fade sizing="contain"></iron-image>
+          </div>
+        </paper-slide>
+        <paper-slide>
+          <div class="text">
+            <div class="content">
+              <h1>BANDAS Y POLEAS</h1>
+              <div>Las mejores bandas para tu auto</div>
+            </div>
+            <iron-image src="../images/products/4.png" style="width:80%; height: 80%;" preload fade sizing="contain"></iron-image>
+          </div>
+        </paper-slide>
+      </l2t-paper-slider>
+    </div>
+  </template>
+
+  <script>
+    class RefaccionInicio extends Polymer.Element {
+      static get is() { return 'refaccion-inicio'; }
+    }
+
+    window.customElements.define(RefaccionInicio.is, RefaccionInicio);
+  </script>
+</dom-module>

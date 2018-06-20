@@ -1,0 +1,27 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/refaccion-app.html",
+  "fragments": [
+    "src/refaccion-view1.html",
+    "src/refaccion-view2.html",
+    "src/refaccion-view3.html",
+    "src/refaccion-view404.html"
+  ],
+  "sources": [
+    "images/**/*",
+    "src/**/*"
+  ],
+  "extraDependencies": [
+    "bower_components/webcomponentsjs/*.js",
+    "!bower_components/webcomponentsjs/gulpfile.js",
+    "manifest.json"
+  ],
+  "lint": {
+    "rules": ["polymer-2"]
+  },
+  "builds": [
+    {
+      "preset": "es5-bundled"
+    }
+  ]
+}

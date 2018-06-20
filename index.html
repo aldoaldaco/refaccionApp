@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Refaccion App</title>
+  <meta name="description" content="Cells elements Catalog">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <link rel="icon" href="images/mecanico.png">
+  <link rel="manifest" href="manifest.json"> <!-- See https://goo.gl/OOhYW5 -->
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" as="style">
+  <script>
+    window.I18nMsg = window.I18nMsg || {};
+    window.I18nMsg.disabled = true;
+  </script>
+  <script async src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <link rel="import" href="src/refaccion-app.html">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700">
+  <style>
+    body {
+      margin: 0;
+      font-family: Lato, sans-serif;
+      background-color: #083358;
+      color: #F6F6F6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    svg { overflow: visible; }
+  </style>
+</head>
+<body>
+  <refaccion-app></refaccion-app>
+  <noscript>
+    <style>
+      .no-script {
+        background-color: #083358;
+      }
+    </style>
+    <div class="no-script">
+      Al parecer tu navegador no soporta JavaScript
+    </div>
+  </noscript>
+</body>
+</html>

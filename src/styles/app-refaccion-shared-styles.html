@@ -1,0 +1,288 @@
+  <link rel="import" href="../bower_components/polymer/polymer-element.html">
+  <dom-module id="app-refaccion-shared-styles">
+    <template>
+      <style>
+        :host {
+          color: var(--app-refaccion-text-color);
+          --app-fontDefault: Lato, sans-serif;
+        }
+
+        :host([hidden]),
+        [hidden] {
+          display: none !important;
+        }
+        .card {
+          margin: 24px;
+          padding: 16px;
+          color: #757575;
+          border-radius: 5px;
+          background-color: #fff;
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        }
+
+        .circle {
+          display: inline-block;
+          width: 64px;
+          height: 64px;
+          text-align: center;
+          color: #555;
+          border-radius: 50%;
+          background: #ddd;
+          font-size: 30px;
+          line-height: 64px;
+        }
+
+        h1 {
+          margin: 16px 0;
+          color: #212121;
+          font-size: 22px;
+        }
+        /* layout */
+        .jumbo {
+          display: grid;
+          margin: auto;
+          grid-template-columns:
+            [full-start] minmax(24px, 1fr)
+            [main-start] minmax(0, 1024px)
+            [main-end] minmax(24px, 1fr)
+            [full-end];
+        }
+
+        .jumbo > * {
+          grid-column: main;
+        }
+
+        .total-components {
+          margin: 48px 0;
+          text-align: center;
+          color: var(--app-refaccion-medium-grey);
+          font-style: italic;
+        }
+
+        /* Text styles */
+        .uppercase {
+          text-transform: uppercase;
+        }
+
+        .lowercase {
+          text-transform: lowercase;
+        }
+
+        .h2 {
+          font-size: 25px;
+          font-weight: bold;
+          letter-spacing: 0.07ex;
+          margin: 0;
+        }
+
+
+
+        .card:hover {
+          z-index: 2;
+        }
+
+        /**
+         * Contains the card background and gradient transition on :hover
+         */
+        .card::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          border-radius: 2px;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          transition: transform 0.1s;
+          background-repeat: no-repeat;
+          box-shadow: 0 8px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover::before {
+          transform: scale(1.04);
+          background-position: 0 0;
+          background-image: linear-gradient(-180deg, #F0F0F0 0%, rgba(255,255,255,0.50) 100%);
+          box-shadow: none;
+        }
+
+        /**
+         * Contains the card shadow and background shadow transition on :hover
+         */
+        .card::after {
+          content: "";
+          position: absolute;
+          width: 336px;
+          height: 336px;
+          left: 50%;
+          right: 0;
+          bottom: -80px;
+          margin: auto;
+          z-index: -2;
+          transition: opacity 0.2s;
+          background: url(../../images/shadow.svg) bottom center no-repeat;
+          transform-origin: bottom center;
+          opacity: 0;
+          will-change: opacity;
+          transform: translate(-50%);
+          pointer-events: none;
+        }
+
+        .card:hover::after {
+          opacity: 1;
+        }
+
+        .tag-list {
+          display: flex;
+          margin: 0;
+          padding: 0;
+        }
+
+        .tag-list > .tag {
+          margin-right: 16px;
+        }
+
+        /* tags */
+        .tag {
+          display: inline-block;
+          border: 1px solid transparent;
+          font-size: 11px;
+          font-weight: bold;
+          line-height: 18px;
+          padding: 0 8px;
+          border-radius: 4px;
+          letter-spacing: 1px;
+        }
+
+        /* custom font-size for tags in uppercase */
+        .tag.uppercase {
+          font-size: 9px;
+        }
+
+        /* badges (the same as tags but rounded) */
+        .badge {
+          width: 32px;
+          height: 32px;
+          line-height: 32px;
+          text-align: center;
+          font-weight: 700;
+          font-size: 14px;
+        }
+
+        .badge-new {
+          background: url(../../images/circle-badge-new.svg) center no-repeat;
+        }
+
+        .badge-beta {
+          background: url(../../images/circle-badge-beta.svg) center no-repeat;
+        }
+
+        /* color style for badges and tags */
+        .outlined-red {
+          color: var(--app-refaccion-pink);
+          border-color: var(--app-refaccion-pink);
+        }
+        .bg-red {
+          color: white;
+          background-color: var(--app-refaccion-pink);
+        }
+        .bg-white {
+          background-color: white;
+        }
+        .dotted {
+          border: 1px dotted;
+        }
+        .bg-green {
+          background-color: var(--app-refaccion-green);
+        }
+        .bg-blue {
+          color: white;
+          background-color: var(--app-refaccion-blue);
+        }
+        .bg-yellow {
+          background-color: var(--app-refaccion-yellow);
+        }
+        .bg-navy {
+          color: white;
+          background-color: var(--app-refaccion-navy);
+        }
+        .bg-dark-blue {
+          color: white;
+          background-color: var(--app-refaccion-dark-blue);
+        }
+
+        .red {
+          background-color: var(--app-refaccion-pink);
+        }
+
+        .dotted {
+          border: 1px dashed #272C39;
+        }
+
+        .polymer-version {
+          background-image: linear-gradient(-90deg, #CA2F71 0%, #3173CE 100%);
+          color: white;
+          border: 0;
+          line-height: 20px;
+          text-transform: uppercase;
+        }
+
+        .previous-refaccion {
+          border: none;
+          margin-top: 32px;
+          background-image: linear-gradient(-90deg, #FC6A7C 0%, #1CC3DF 100%);
+          border-radius: 100px;
+          font-size: 10px;
+          color: #FFFFFF;
+          letter-spacing: 2px;
+          line-height: 16px;
+          padding: 12px;
+          text-transform: uppercase;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+      </style>
+    </template>
+  </dom-module>
+
+  <dom-module id="app-refaccion-grid-layout-styles">
+    <template>
+      <style>
+        /**
+         * 1. fallback for browsers without Grid Layout support
+         * 2. grid-gap for browsers without Grid Layout support
+         * 3. reset margin for browsers with Grid Layout support
+         */
+        .grid {
+          display: flex; /* 1 */
+          flex-wrap: wrap; /* 1 */
+          max-width: 1424px;
+          padding-left: 24px;
+          padding-right: 24px;
+          box-sizing: border-box;
+          margin: auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, 256px);
+          grid-auto-rows: 256px;
+          grid-gap: 24px;
+          justify-content: center;
+        }
+
+        .grid-family {
+          grid-auto-rows: 416px;
+        }
+
+        .grid-item {
+          flex: 1 1 256px; /* 1 */
+          margin: 0 12px 24px; /* 2 */
+        }
+
+        @supports (display: grid) {
+          .grid-item {
+            margin: 0; /* 3 */
+          }
+        }
+      </style>
+    </template>
+  </dom-module>
