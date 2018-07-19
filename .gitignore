@@ -6,3 +6,4 @@ gulpfile.js
 tasks/
 .idea/
 .DS_Store
+.firebaserc

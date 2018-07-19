@@ -6,8 +6,6 @@
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
-<link rel="import" href="../bower_components/paper-tabs/paper-tab.html">
 <link rel="import" href="../bower_components/paper-progress/paper-progress.html">
 <link rel="import" href="../bower_components/iron-image/iron-image.html">
 
@@ -36,11 +34,6 @@
         background-color: var(--app-cuarto-color);
         font-family: 'Roboto Mono', sans-serif;
         --app-drawer-width: 300px;
-        --app-header-shadow: {
-          -webkit-box-shadow: 0px -20px 22px 11px rgba(4,4,4,1);
-          -moz-box-shadow: 0px -20px 22px 11px rgba(4,4,4,1);
-          box-shadow: 0px -20px 22px 11px rgba(4,4,4,1);
-        };
       }
       a {
         text-decoration: none;
@@ -76,6 +69,7 @@
       }
       .tabs {
         width: 60%;
+        height: 100%;
         padding-right: 16px;
         display: flex;
         flex-direction: row;
@@ -84,6 +78,7 @@
       }
       .tab {
         width: 200px;
+        height: 96%;
         display: flex;
         font-size: 14px;
         font-weight: normal;
@@ -116,6 +111,7 @@
           padding-left: 0;
         }
         app-header {
+          padding-top: 10px;
           padding-left: 0;
         }
         [main-title] {
