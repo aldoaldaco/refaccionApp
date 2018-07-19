@@ -9,6 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="refaccion-nosotros">
@@ -17,22 +18,85 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: block;
         width: 100%;
-        height: 100vh;
+        height: auto;
         background-color: var(--app-tercer-color);
-        padding-top: 100px;
+        z-index: 5;
+        padding-top: 50px;
       }
-
       .title {
-        color: var(--app-cuarto-color);
+        margin: 16px 0;
+        color: var(--app-quinto-color);
+        font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-align: center;
       }
-
       .line-title {
-        color: var(--app-primer-color);
+        width: 50px;
+        margin: 10px auto 10px;
+        border-bottom: 2px solid var(--app-primer-color);
+      }
+      .body {
+        margin-top: 50px;
+      }
+      .logo {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+      }
+      iron-image {
+        width: 100%;
+        height: 180px;
+      }
+      .parrafo {
+        margin-top: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 50px;
+        font-size: 20px;
+        text-align: center;
+      }
+      p {
+        margin-bottom: 0;
+      }
+      @media only screen and (max-width: 1000px) {
+        .parrafo {
+          margin-top: 20px;
+          margin-bottom: 0;
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-bottom: 20px;
+        }
+      }
+      @media only screen and (max-width: 400px) {
+        .parrafo {
+          margin-top: 5px;
+          margin-bottom: 0;
+          padding-left: 5px;
+          padding-right: 5px;
+          padding-bottom: 30px;
+        }
       }
     </style>
     <div class="header-page">
-      <h1 class="title">NOSOTROS</h1>
+      <h1 class="title">QUIENES SOMOS</h1>
       <div class="line-title"></div>
+    </div>
+    <div class="body">
+      <div class="logo">
+        <iron-image src="../images/logo.png" sizing="contain"></iron-image>
+      </div>
+      <div class="parrafo">
+        <p>
+        Somos el principal mayorista de la marca ACDelco a nivel nacional, contamos con sucursales en el Distrito Federal y el estado de Guanajuato, haciendo entrega a nivel nacional.
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
     </div>
   </template>
 

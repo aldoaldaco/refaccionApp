@@ -1,0 +1,115 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="refaccion-card">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: flex;
+        width: 100%;
+        height: 100%;
+      }
+      .card {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 5px;
+        z-index: 1;
+        background-color: var(--app-cuarto-color);
+        color: #000000;
+        -webkit-box-shadow: 0px 0px 40px 3px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 40px 3px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 40px 3px rgba(0,0,0,0.75);
+      }
+      .card:hover, .card:active, .card:focus {
+        z-index: 2;
+        cursor: pointer;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+      .pic-product {
+        width: 100%;
+        height: 186px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--app-segundo-color);
+      }
+      .pic {
+        text-align: center;
+        flex-shrink: 0;
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        position: relative;
+      }
+      iron-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+      .desc-product {
+        width: 100%;
+        height: 200px;
+        background-color: #e1e1e1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      h4 {
+        margin: 0;
+        font-size: 24px;
+      }
+      p {
+        margin: 0;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: normal;
+      }
+      @media only screen and (max-width: 1000px) {
+
+      }
+    </style>
+    <div class="card">
+      <div class="pic-product">
+        <div class="pic">
+          <iron-image src="[[product.image]]" sizing="cover"></iron-image>
+        </div>
+      </div>
+      <h4>[[product.name]]</h4>
+      <div class="desc-product">
+      <p>
+        [[product.description]]
+      </p>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    class RefaccionCard extends Polymer.Element {
+      static get is() { return 'refaccion-card'; }
+      static get properties() {
+        return {
+          product: {
+            type: Object,
+            value: {
+              image: 'http://via.placeholder.com/350x150',
+              name: 'Producto',
+              description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+            }
+          }
+        };
+      }
+    }
+
+    window.customElements.define(RefaccionCard.is, RefaccionCard);
+  </script>
+</dom-module>
