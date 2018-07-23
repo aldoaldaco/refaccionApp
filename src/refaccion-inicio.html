@@ -93,6 +93,7 @@
       .footer-page {
         height: 100px;
         display: flex;
+        margin-top: 40px;
         justify-content: space-between;
         background-color: var(--app-quinto-color);
       }
@@ -103,7 +104,7 @@
       @media only screen and (max-width: 1000px) {
         .body {
           height: 400px;
-          margin-top: 125px;
+          margin-top: 75px;
         }
         l2t-paper-slider {
           --paper-slide-height: 400px;
@@ -128,12 +129,18 @@
         .picture {
           justify-content: flex-start;
         }
+        .header-page {
+          margin-top: 10px;
+        }
         .footer-page {
           margin-top: 40px;
         }
       }
     </style>
-    <div class="header-page"></div>
+    <div class="header-page">
+      <h1 class="title">HOME</h1>
+      <div class="line-title"></div>
+    </div>
     <div class="body">
       <l2t-paper-slider auto-progress slide-duration="2">
         <paper-slide>

@@ -33,7 +33,10 @@
         --app-sexto-color: #00AA8D;
         background-color: var(--app-cuarto-color);
         font-family: 'Roboto Mono', sans-serif;
-        --app-drawer-width: 300px;
+      }
+      .actual {
+        font-weight: bolder!important;
+        border-bottom: 4px solid var(--app-quinto-color)!important;
       }
       a {
         text-decoration: none;
@@ -47,15 +50,11 @@
         display: flex;
         font-weight: bolder;
         margin-left: 0;
-        --layout-horizontal: {
-          padding: 0!important;
-        };
-        --layout-vertical: {
-          padding: 0!important;
-        };
+
       }
       app-header {
         width: 100%;
+        height: auto;
         z-index: 10;
         position: fixed;
         top: 0;
@@ -77,8 +76,8 @@
         text-transform: uppercase;
       }
       .tab {
-        width: 200px;
-        height: 96%;
+        width: 25%;
+        height: 91%;
         display: flex;
         font-size: 14px;
         font-weight: normal;
@@ -87,10 +86,10 @@
         align-content: center;
         align-items: center;
       }
-      .tab:hover, .tab:focus, .tab:active, .tab:visited {
+      .tab:hover {
         cursor: pointer;
         font-weight: bolder;
-        border-bottom: 3px solid var(--app-quinto-color);
+        border-bottom: 4px solid var(--app-quinto-color);
       }
       [main-title] {
         width: 40%;
@@ -124,6 +123,9 @@
           font-size: 14px;
           padding-right: 0;
         }
+        .tab {
+          height: 87%;
+        }
       }
 
       @media only screen and (max-width: 322px) {
@@ -141,18 +143,18 @@
           <app-toolbar>
             <div main-title>[[header.brand]]</div>
             <div class="tabs">
-              <a class="tab" href="#">Home</a>
-              <a class="tab" href="#">Productos</a>
-              <a class="tab" href="#">Nosotros</a>
-              <a class="tab" href="#">Conctacto</a>
+              <a class="tab" id="inicio" on-click="_goToRoute" href="#">Inicio</a>
+              <a class="tab" id="productos" on-click="_goToRoute" href="#">Productos</a>
+              <a class="tab" id="nosotros" on-click="_goToRoute" href="#">Nosotros</a>
+              <a class="tab" id="contacto" on-click="_goToRoute" href="#">Conctacto</a>
             </div>
           </app-toolbar>
         </app-header>
         <div class="app-body">
-          <refaccion-inicio id="inicio" name="Inicio"></refaccion-inicio>
-          <refaccion-productos id="productos" name="Productos"></refaccion-productos>
-          <refaccion-nosotros id="contacto" name="Contacto"></refaccion-nosotros>
-          <refaccion-contacto id="contacto" name="Contacto"></refaccion-contacto>
+          <refaccion-inicio id="rinicio" name="Inicio"></refaccion-inicio>
+          <refaccion-productos id="rproductos" name="Productos"></refaccion-productos>
+          <refaccion-nosotros id="rnosotros" name="Nosotros"></refaccion-nosotros>
+          <refaccion-contacto id="rcontacto" name="Contacto"></refaccion-contacto>
           <refaccion-view404 name="view404"></refaccion-view404>
         </div>
       </app-header-layout>
@@ -215,6 +217,49 @@
         return 'Inicio';
       }
 
+      _goToRoute(event) {
+        const option = event.target.id;
+        let tabs = this.shadowRoot.querySelectorAll('.tab');
+        //TODO: map is not support for NoleList, but ES6 not support forEach
+        tabs.forEach((a) => {
+          return a.classList.remove('actual');
+        });
+        switch(option) {
+          case 'inicio':
+            this.$.inicio.classList.toggle('actual');
+            this.$.rinicio.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'nearest'
+            });
+            break;
+          case 'contacto':
+            this.$.contacto.classList.toggle('actual');
+            this.$.rcontacto.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'nearest'
+            });
+            break;
+          case 'productos':
+            this.$.productos.classList.toggle('actual');
+            this.$.rproductos.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'nearest'
+            });
+            break;
+          case 'nosotros':
+            this.$.nosotros.classList.toggle('actual');
+            this.$.rnosotros.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'nearest'
+            });
+            break;
+        }
+      }
+
       _routeChanged(route) {
         if (!route.path) {
           this.set('route.path', '/');
@@ -222,31 +267,7 @@
       }
 
       _navigateTo(selected) {
-        const option = this.header.menu[selected].toLowerCase();
-        switch(option) {
-          case 'inicio':
-            this.$.inicio.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center',
-              inline: 'nearest'
-            });
-            break;
-          case 'contacto':
-            this.$.contacto.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center',
-              inline: 'nearest'
-            });
-            break;
-          case 'productos':
-            this.$.productos.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center',
-              inline: 'nearest'
-            });
-            break;
-        }
-        this.page = this.header.menu[selected];
+
       }
 
       _routePageChanged(page) {
